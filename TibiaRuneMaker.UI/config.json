@@ -1,0 +1,18 @@
+﻿{
+  "CastSpellCooldown": 40,
+  "EatFoodCooldown": 600,
+  "SoftBootsCooldown": 14400,
+  "LifeRingCooldown": 1200,
+  
+  "EatFoodMinimumRandomTime": 30,
+  "EatFoodMaximumRandomTime": 60,
+  
+  "CastSpellMinimumRandomTime": 2,
+  "CastSpellMaximumRandomTime": 7,
+  
+  "LifeRingMinimumRandomTime": 10,
+  "LifeRingMaximumRandomTime": 30,
+  
+  "SoftBootsMinimumRandomTime": 10,
+  "SoftBootsMaximumRandomTime": 80
+}

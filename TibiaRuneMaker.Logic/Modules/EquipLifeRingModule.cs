@@ -5,9 +5,9 @@ namespace TibiaRuneMaker.Logic.Modules
 {
     public class EquipLifeRingModule: AbstractTimeModule
     {
-        protected override int Cooldown => ServiceWrapper.Configuration.LifeRingCooldown;
-        protected override int MinimumRandomTime => ServiceWrapper.Configuration.LifeRingMinimumRandomTime;
-        protected override int MaximumRandomTime => ServiceWrapper.Configuration.LifeRingMaximumRandomTime;
+        protected override int Cooldown => ServiceWrapper.Configuration.UserConfiguration.LifeRingCooldown;
+        protected override int MinimumRandomTime => ServiceWrapper.Configuration.UserConfiguration.LifeRingMinimumRandomTime;
+        protected override int MaximumRandomTime => ServiceWrapper.Configuration.UserConfiguration.LifeRingMaximumRandomTime;
         protected override ModuleEnum Module => ModuleEnum.EquipLifeRing;
         private KeysEnum _key => ServiceWrapper.Configuration.KeyEquipLifeRing;
         
