@@ -5,9 +5,9 @@ namespace TibiaRuneMaker.Logic.Modules
 {
     public class EquipSoftBootsModule : AbstractTimeModule
     {
-        protected override int Cooldown => ServiceWrapper.Configuration.SoftBootsCooldown;
-        protected override int MinimumRandomTime => ServiceWrapper.Configuration.SoftBootsMinimumRandomTime;
-        protected override int MaximumRandomTime => ServiceWrapper.Configuration.SoftBootsMaximumRandomTime;
+        protected override int Cooldown => ServiceWrapper.Configuration.UserConfiguration.SoftBootsCooldown;
+        protected override int MinimumRandomTime => ServiceWrapper.Configuration.UserConfiguration.SoftBootsMinimumRandomTime;
+        protected override int MaximumRandomTime => ServiceWrapper.Configuration.UserConfiguration.SoftBootsMaximumRandomTime;
         protected override ModuleEnum Module => ModuleEnum.EquipSoftBoots;
         private KeysEnum _key => ServiceWrapper.Configuration.KeyEquipSoftBoots;
         

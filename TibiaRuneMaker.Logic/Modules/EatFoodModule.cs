@@ -7,9 +7,9 @@ namespace TibiaRuneMaker.Logic.Modules
 {
     public class EatFoodModule : AbstractTimeModule
     {
-        protected override int Cooldown => ServiceWrapper.Configuration.EatFoodCooldown;
-        protected override int MinimumRandomTime => ServiceWrapper.Configuration.EatFoodMinimumRandomTime;
-        protected override int MaximumRandomTime => ServiceWrapper.Configuration.EatFoodMaximumRandomTime;
+        protected override int Cooldown => ServiceWrapper.Configuration.UserConfiguration.EatFoodCooldown;
+        protected override int MinimumRandomTime => ServiceWrapper.Configuration.UserConfiguration.EatFoodMinimumRandomTime;
+        protected override int MaximumRandomTime => ServiceWrapper.Configuration.UserConfiguration.EatFoodMaximumRandomTime;
         protected override ModuleEnum Module => ModuleEnum.EatFood;
         private KeysEnum _key => ServiceWrapper.Configuration.KeyEatFood;
 

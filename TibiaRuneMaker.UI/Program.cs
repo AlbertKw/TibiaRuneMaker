@@ -1,9 +1,12 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Extensions.DependencyInjection;
 using TibiaRuneMaker.Logic;
 using TibiaRuneMaker.Logic.Interfaces;
+using TibiaRuneMaker.Logic.Models;
 using TibiaRuneMaker.Logic.Services;
 using TibiaRuneMaker.UI.Extensions;
+using System.Text.Json;
 
 namespace TibiaRuneMaker.UI
 {
@@ -15,7 +18,14 @@ namespace TibiaRuneMaker.UI
         {
             try
             {
-                RegisterServices();
+                UserConfigurationModel userConfiguration;
+                using (var streamReader = new StreamReader("config.json"))
+                {
+                    var json = streamReader.ReadToEnd();
+                    userConfiguration = JsonSerializer.Deserialize<UserConfigurationModel>(json);
+                }
+                
+                RegisterServices(userConfiguration);
                 var scope = _serviceProvider.CreateScope();
                 scope.ServiceProvider.GetRequiredService<Application>().Run();
                 DisposeServices();
@@ -31,9 +41,10 @@ namespace TibiaRuneMaker.UI
             }
         }
         
-        private static void RegisterServices()
+        private static void RegisterServices(UserConfigurationModel userConfiguration)
         {
             var services = new ServiceCollection();
+            services.AddSingleton(userConfiguration);
             services.AddSingleton<Application>();
             services.AddSingleton<Configuration>();
             services.AddSingleton<IClientInjector, ClientInjector>();
